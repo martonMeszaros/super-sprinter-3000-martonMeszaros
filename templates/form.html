@@ -17,9 +17,9 @@
     </header>
     <main>
         {% if entry[1] %}
-            <form action="{{ url_for('process', action='edit') }}" method="post">
+            <form action="{{ url_for('process', action='edit', story_id=0) }}" method="post">
         {% else %}
-            <form action="{{ url_for('process', action='new') }}" method="post">
+            <form action="{{ url_for('process', action='new', story_id=0) }}" method="post">
         {% endif %}
             <label for="id">ID:</label><br>
             <input name="id" type="number"
@@ -86,7 +86,12 @@
                         {% endif %}>Done</option>
             </select><br>
 
-            <input type="submit" value="Create">
+            <input type="submit"
+                    {% if entry[1] %}
+                        value="Update"
+                    {% else %}
+                        value="Create"
+                    {% endif %}>
         </form>
     </main>
 </div>
