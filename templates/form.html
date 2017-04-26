@@ -31,19 +31,11 @@
             
             <label for="user_story">User Story*:</label><br>
             <textarea name="user_story"
-                    id="user_story" required rows="5" cols="30">
-                {% if entry[2] %}
-                    {{ entry[2] }}
-                {% endif %}
-            </textarea><br>
+                    id="user_story" required rows="5" cols="30">{% if entry[2] %}{{ entry[2] }}{% endif %}</textarea><br>
 
             <label for="acceptance_criteria">Acceptance Criteria*:</label><br>
             <textarea name="acceptance_criteria"
-                    id="acceptance_criteria" required rows="5" cols="30">
-                {% if entry[3] %}
-                    {{ entry[3] }}
-                {% endif %}
-            </textarea><br>
+                    id="acceptance_criteria" required rows="5" cols="30">{% if entry[3] %}{{ entry[3] }}{% endif %}</textarea><br>
 
             <label for="buisness_value">Buisness Value:</label><br>
             <input name="buisness_value" type="number"
