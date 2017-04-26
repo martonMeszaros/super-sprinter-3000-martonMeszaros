@@ -16,6 +16,7 @@ def index():
     )
 
 
+
 @app.route("/story")
 def new_entry():
     title = "Super Sprinter 3000 - Add new Story"
