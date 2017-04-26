@@ -1,4 +1,6 @@
 from flask import Flask, render_template, redirect, request, url_for
+
+import process_data
 app = Flask(__name__)
 
 
@@ -7,7 +9,7 @@ app = Flask(__name__)
 def index():
     title = "Super Sprinter 3000"
     h1 = "User Story Manager"
-    table = False
+    table = process_data.get_table()
     return render_template(
         "list.html",
         title=title, h1=h1, table=table
@@ -19,7 +21,7 @@ def new_entry():
     title = "Super Sprinter 3000 - Add new Story"
     h1 = "User Story Manager - Add new Story"
     entry = [False] * 7
-    entry[0] = 1
+    entry[0] = process_data.get_new_id()
     return render_template(
         "form.html",
         title=title, h1=h1, entry=entry
