@@ -16,7 +16,7 @@
         <h1>{{ h1 }}</h1>
     </header>
     <main>
-        <form action="/process" method="">
+        <form action="/process" method="post">
             <label for="id">ID:</label><br>
             <input name="id" type="number"
                     id="id" required readonly
@@ -86,7 +86,9 @@
                         {% if entry[6] == "Done" %}
                             selected
                         {% endif %}>Done</option>
-            </select>
+            </select><br>
+
+            <input type="submit" value="Create">
         </form>
     </main>
 </div>
