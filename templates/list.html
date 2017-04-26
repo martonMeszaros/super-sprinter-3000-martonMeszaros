@@ -7,7 +7,7 @@
 
     <title>{{ title }}</title>
 
-    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
     <link rel="icon" href="">
 </head>
 <body>
@@ -16,7 +16,30 @@
         <h1>{{ h1 }}</h1>
     </header>
     <main>
-        main
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Story Title</th>
+                <th>User Story</th>
+                <th>Acceptance criteria</th>
+                <th>Buisness Value</th>
+                <th>Estimation (h)</th>
+                <th>Status</th>
+                <th>Edit</th>
+            </tr>
+            {% if table %}
+                {% for row in table %}
+                    <tr>
+                        {% for col in row %}
+                            <td>{{ col }}</td>
+                        {% endfor %}
+                        <td>
+                            <a href="">Edit</a><br>
+                            <a href="">Delete</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            {% endif %}
     </main>
 </div>
 </body>

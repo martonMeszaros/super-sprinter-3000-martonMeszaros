@@ -7,7 +7,7 @@
 
     <title>{{ title }}</title>
 
-    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/main.css')}}">
     <link rel="icon" href="">
 </head>
 <body>
@@ -16,7 +16,78 @@
         <h1>{{ h1 }}</h1>
     </header>
     <main>
-        main
+        <form action="/process" method="">
+            <label for="id">ID:</label><br>
+            <input name="id" type="number"
+                    id="id" required readonly
+                    value="{{ entry[0] }}"><br>
+            
+            <label for="story_title">Story Title*:</label><br>
+            <input name="story_title" type="text"
+                    id="id" required
+                    {% if entry[1] %}
+                        value="{{ entry[1] }}"
+                    {% endif %}><br>
+            
+            <label for="user_story">User Story*:</label><br>
+            <textarea name="user_story"
+                    id="user_story" required rows="5" cols="30">
+                {% if entry[2] %}
+                    {{ entry[2] }}
+                {% endif %}
+            </textarea><br>
+
+            <label for="acceptance_criteria">Acceptance Criteria*:</label><br>
+            <textarea name="acceptance_criteria"
+                    id="acceptance_criteria" required rows="5" cols="30">
+                {% if entry[3] %}
+                    {{ entry[3] }}
+                {% endif %}
+            </textarea><br>
+
+            <label for="buisness_value">Buisness Value:</label><br>
+            <input name="buisness_value" type="number"
+                    id="buisness_value" min="100" max="1500" step="100"
+                    {% if entry[4] %}
+                        value="{{ entry[4] }}"
+                    {% else %}
+                        value="1000"
+                    {% endif %}><br>
+            
+            <label for="estimation">Estimation (h):</label><br>
+            <input name="estimation" type="number"
+                    id="estimation" min="0.5" max="40" step="0.5"
+                    {% if entry[5] %}
+                        value="{{ entry[5] }}"
+                    {% else %}
+                        value="2.5"
+                    {% endif %}><br>
+
+            <label for="status">Status:</label><br>
+            <select name="status"
+                    id="status">
+                <option value="Planning"
+                        {% if entry[6] == "Planning" %}
+                            selected
+                        {% endif %}>Planning</option>
+                <option value="TODO"
+                        {% if entry[6] == "TODO" %}
+                            selected
+                        {% endif %}>TODO</option>
+                <option value="In Progress"
+                        {% if entry[6] == "In Progress" %}
+                            selected
+                        {% endif %}>In Progress</option>
+                <option value="Review"
+                        {% if entry[6] == "Review" %}
+                            selected
+                        {% endif %}>Review</option>
+                <option value="Done"
+                        {% if entry[6] == "Done" %}
+                            selected
+                        {% endif %}>Done</option>
+            </select>
+        </form>
     </main>
 </div>
 </body>
