@@ -16,7 +16,7 @@
         <h1>{{ h1 }}</h1>
     </header>
     <main>
-        <a href="{{ url_for('new_entry') }}">Add a new User Story</a><br>
+        <a href="{{ url_for('new_story') }}">Add a new User Story</a><br>
         <table>
             <tr>
                 <th>ID</th>
@@ -35,8 +35,8 @@
                             <td>{{ col }}</td>
                         {% endfor %}
                         <td>
-                            <a href="">Edit</a><br>
-                            <a href="">Delete</a>
+                            <a href="{{ url_for('edit_story', story_id=row[0]) }}">Edit</a><br>
+                            <a href="{{ url_for('process', action='delete', story_id=row[0]) }}">Delete</a>
                         </td>
                     </tr>
                 {% endfor %}
