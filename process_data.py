@@ -63,7 +63,17 @@ def update_story(table, story):
 
 
 def del_story(table, story_id):
-    pass
+    found_row = False
+    for i in range(len(table)):
+        if not found_row:
+            if table[i][0] == story_id:
+                del table[i]
+                found_row = i
+                break
+    for i in range(len(table)):
+        if i >= found_row:
+            table[i][0] -= 1
+    return table
 
 
 if __name__ == "__main__":
