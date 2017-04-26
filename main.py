@@ -16,7 +16,6 @@ def index():
     )
 
 
-
 @app.route("/story")
 def new_entry():
     title = "Super Sprinter 3000 - Add new Story"
@@ -30,14 +29,32 @@ def new_entry():
 
 
 @app.route("/story/<int:story_id>")
-def edit_entry():
+def edit_entry(story_id):
     title = "Super Sprinter 3000 - Edit Story"
     h1 = "User Story Manager - Edit Story"
     return redirect(url_for("index"))
 
 
-@app.route("/process", methods=["POST"])
-def process(action="new"):
+@app.route("/process<action>", methods=["POST"])
+def process(action=False):
+    if action:
+        if request.method == "POST":
+            if action == "new":
+                table = process_data.get_table()
+                if not table:
+                    table = []
+                table.append([
+                    request.form["id"],
+                    request.form["story_title"],
+                    request.form["user_story"],
+                    request.form["acceptance_criteria"],
+                    request.form["buisness_value"],
+                    request.form["estimation"],
+                    request.form["status"]
+                ])
+                process_data.save_table(table)
+            elif action == "edit":
+                print("edit")
     return redirect(url_for("index"))
 
 
