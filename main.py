@@ -17,7 +17,7 @@ def index():
 
 
 @app.route("/story")
-def new_entry():
+def new_story():
     title = "Super Sprinter 3000 - Add new Story"
     h1 = "User Story Manager - Add new Story"
     entry = [False] * 7
@@ -29,32 +29,43 @@ def new_entry():
 
 
 @app.route("/story/<int:story_id>")
-def edit_entry(story_id):
+def edit_story(story_id=None):
     title = "Super Sprinter 3000 - Edit Story"
     h1 = "User Story Manager - Edit Story"
-    return redirect(url_for("index"))
+    for row in process_data.get_table():
+        if row[0] == story_id:
+            entry = row
+            break
+    return render_template(
+        "form.html",
+        title=title, h1=h1, entry=entry
+    )
 
 
-@app.route("/process<action>", methods=["POST"])
-def process(action=False):
+@app.route("/process<action><int:story_id>", methods=["POST", "GET"])
+def process(action=False, story_id=None):
     if action:
+        table = process_data.get_table()
+        if not table:
+            table = []
         if request.method == "POST":
+            story = [
+                request.form["id"],
+                request.form["story_title"],
+                request.form["user_story"],
+                request.form["acceptance_criteria"],
+                request.form["buisness_value"],
+                request.form["estimation"],
+                request.form["status"]
+            ]
             if action == "new":
-                table = process_data.get_table()
-                if not table:
-                    table = []
-                table.append([
-                    request.form["id"],
-                    request.form["story_title"],
-                    request.form["user_story"],
-                    request.form["acceptance_criteria"],
-                    request.form["buisness_value"],
-                    request.form["estimation"],
-                    request.form["status"]
-                ])
-                process_data.save_table(table)
+                table.append(story)
             elif action == "edit":
-                print("edit")
+                table = process_data.update_story(table, story)
+        elif request.method == "GET":
+            if action == "delete" and story_id:
+                table = process_data.del_story(table, story_id)
+        process_data.save_table(table)
     return redirect(url_for("index"))
 
 
