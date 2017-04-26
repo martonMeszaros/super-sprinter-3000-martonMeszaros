@@ -53,7 +53,13 @@ def save_table(table, filename="user_stories.csv", rowsep=",r,", colsep=",c,"):
 
 
 def update_story(table, story):
-    pass
+    idx = 0
+    for i, row in enumerate(table):
+        if row[0] == int(story[0]):
+            idx = i
+            break
+    table[idx] = story
+    return table
 
 
 def del_story(table, story_id):
