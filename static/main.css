@@ -1,0 +1,86 @@
+/*COMMON*/
+*{
+    margin: 0; padding: 0;
+    box-sizing: border-box
+}
+body{
+    background: #E0E0E0;
+
+    font-family: sans-serif;
+    line-height: 1.75;
+
+    cursor: default;
+}
+    
+    #page-container{
+        background: #EEE;
+    }
+
+header{
+    padding: 0 20px;
+    background: #009688;
+}
+
+    h1{
+        color: #EEE;
+        font-weight: 400;
+    }
+
+main{
+    padding: 0 10px;
+}
+
+
+
+/*SMALLER THAN 960PX WIDE*/
+@media screen and (max-width:959px){
+    body{
+        font-size: 18px;
+    }
+        
+        #page-container{
+            width: 100vw; min-height: 100vh;
+        }
+
+    header{
+        min-height: 55px;
+        margin: 0 0 15px; padding: 0 20px;
+
+        box-shadow: 0 0 35px rgba(0, 0, 0, 0.35);
+    }
+        h1{
+            font-size: 26px; line-height: 55px;
+        }
+}
+
+
+
+/*BETWEEN 450PX AND 960PX WIDE*/
+@media screen and (min-width:450px) and (max-width:959px){
+    body{
+        font-size: 20px;
+    }
+}
+
+
+
+/*DESKTOP DISPLAY*/
+@media screen and (min-width:960px){
+    body{font-size: 20px;}
+        #page-container{
+            width: 960px; min-height: calc(100vh - 15px);
+            margin: 15px auto 0;
+
+            box-shadow: 0 0 35px rgba(0, 0, 0, 0.35);
+        }
+    
+    header{
+        min-height: 60px;
+        margin: 0 0 25px; padding: 0 20px;
+
+        box-shadow: 0 17px 35px -17px rgba(0, 0, 0, 0.35);
+    }
+        h1{
+            font-size: 36px; line-height: 60px;
+        }
+}
