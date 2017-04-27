@@ -1,0 +1,99 @@
+main > a:link, main > a:visited{
+    padding: 5px 10px;
+    background: #9E9E9E;
+    border: 1px solid #757575;
+    border-radius: 3px;
+
+    color: #EEE;
+    text-decoration: none;
+
+    transition: background 0.3s, border 0.3s;
+}
+
+    main > a:hover, main > a:active{
+        background: #4DB6AC;
+        border: 1px solid #009688;
+    }
+
+.material-icons{
+    color: #9E9E9E;
+    
+    transition: color 0.3s;
+}
+
+    .material-icons:hover, .material-icons:active{
+        color: #4DB6AC;
+    }
+
+table{
+    width: 100%;
+    margin: 25px 0 0;
+    border-collapse: collapse;
+}
+
+    tr:first-child{
+        background: #4DB6AC;
+    }
+
+    tr:last-child{
+        border-bottom: 1px solid rgba(0, 0, 0, 0.35);
+    }
+
+    th{
+        font-weight: 400;
+    }
+
+@media screen and (max-width:649px){
+    tr{
+        width: 100%;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.35);
+    }
+
+    th, td{
+        display: block;
+        width: 100%;
+        padding: 0 10px;
+    }
+
+    th{
+        line-height: 1.25;
+    }
+
+    td:nth-child(odd){
+        background: rgba(77, 182, 172, 0.35);
+    }
+
+    td:last-child{
+        text-align: center;
+    }
+
+    .material-icons{
+        font-size: 36px; line-height: 1.25;
+    }
+}
+
+@media screen and (min-width:650px){
+    tr:nth-child(odd){
+        background: rgba(0, 0, 0, 0.1);
+    }
+
+    tr:first-child{
+        background: #4DB6AC;
+    }
+    
+        th, td{
+            padding: 0 5px;
+            
+            line-height: 1.1;
+        }
+        
+        td:nth-child(1), td:nth-child(5), td:nth-child(6), td:nth-child(8){
+            width: 30px;
+
+            text-align: center;
+        }
+
+        td:nth-child(3), td:nth-child(4){
+            font-size: 16px; line-height: 1.25;
+        }
+}
