@@ -7,8 +7,8 @@
 
     <title>{{ title }}</title>
 
-    <link rel="stylesheet" href="{{ url_for('static' filename='css/main.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static' filename='css/form.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/form.css') }}">
     <link rel="icon" href="">
 </head>
 <body>
@@ -29,7 +29,7 @@
             
             <label for="story_title">Story Title<span class="req">*</span>:</label><br>
             <input name="story_title" type="text"
-                    id="id" required
+                    id="id" required autofocus
                     {% if entry[1] %}
                         value="{{ entry[1] }}"
                     {% endif %}><br>
