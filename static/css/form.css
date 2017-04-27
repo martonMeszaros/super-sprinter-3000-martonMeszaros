@@ -1,0 +1,61 @@
+main{
+    line-height: 1.25;
+}
+
+form > label:first-child, input[name="id"]{
+    display: none;
+}
+
+.req{
+    color: red;
+}
+
+.half{
+    width: 50%;
+    padding: 0 10px 0 0;
+    float: left;
+}
+
+    .half:last-child::after{
+        display: block;
+        width: 0; height: 0;
+        clear: both;
+    }
+
+input, textarea{
+    width: 100%;
+    margin: 0 0 15px;
+    background: #EEE;
+
+    font-size: 20px;
+
+    transition: background 0.3s;
+}
+
+    input:focus, textarea:focus{
+        background: rgba(77, 182, 172, 0.35);
+        outline: none;
+    }
+
+select{
+    margin: 0 0 35px;
+    background: #EEE;
+    
+    font-size: 20px;
+}
+
+input[type="submit"]{
+    display: block;
+    max-width: 150px; min-height: 48px;
+    margin: 0 auto;
+    background: #9E9E9E;
+    border: 1px solid #757575;
+    border-radius: 3px;
+
+    transition: background 0.3s, border 0.3s;
+}
+
+    input[type="submit"]:hover, input[type="submit"]:active{
+        background: #4DB6AC;
+        border: 1px solid #009688;
+    }
