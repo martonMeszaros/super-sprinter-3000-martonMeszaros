@@ -42,7 +42,7 @@ def edit_story(story_id=None):
     )
 
 
-@app.route("/process<action><int:story_id>", methods=["POST", "GET"])
+@app.route("/process/<int:story_id>/<action>", methods=["POST", "GET"])
 def process(action=False, story_id=None):
     if action:
         table = process_data.get_table()
