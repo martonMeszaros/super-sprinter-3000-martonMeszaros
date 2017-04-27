@@ -7,7 +7,12 @@
 
     <title>{{ title }}</title>
 
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <!--To display material icons, use class: material-icons
+    http://material.io/icons/
+    -->
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="list.css">
     <link rel="icon" href="">
 </head>
 <body>
@@ -35,12 +40,15 @@
                             <td>{{ col }}</td>
                         {% endfor %}
                         <td>
-                            <a href="{{ url_for('edit_story', story_id=row[0]) }}">Edit</a><br>
-                            <a href="{{ url_for('process', action='delete', story_id=row[0]) }}">Delete</a>
+                            <a href="{{ url_for('edit_story', story_id=row[0]) }}"
+                                    class="material-icons">edit</a><br>
+                            <a href="{{ url_for('process', action='delete', story_id=row[0]) }}"
+                                    class="material-icons">delete</a>
                         </td>
                     </tr>
                 {% endfor %}
             {% endif %}
+        </table>
     </main>
 </div>
 </body>
