@@ -29,7 +29,7 @@
             
             <label for="story_title">Story Title<span class="req">*</span>:</label><br>
             <input name="story_title" type="text"
-                    id="id" required autofocus
+                    id="story_title" required autofocus
                     {% if entry[1] %}
                         value="{{ entry[1] }}"
                     {% endif %}><br>
@@ -94,6 +94,7 @@
             </select><br>
 
             <input type="submit"
+                    id="submit"
                     {% if entry[1] %}
                         value="Update"
                     {% else %}
