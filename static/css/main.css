@@ -1,7 +1,10 @@
 /*COMMON*/
 *{
     margin: 0; padding: 0;
-    box-sizing: border-box
+    border: none;
+    box-sizing: border-box;
+
+    text-decoration: none;
 }
 body{
     background: #E0E0E0;
@@ -68,8 +71,8 @@ main{
 @media screen and (min-width:960px){
     body{font-size: 20px;}
         #page-container{
-            width: 960px; min-height: calc(100vh - 15px);
-            margin: 15px auto 0;
+            width: 960px; min-height: calc(100vh - 15px - 20vh);
+            margin: 15px auto 20vh;
 
             box-shadow: 0 0 35px rgba(0, 0, 0, 0.35);
         }
@@ -83,4 +86,8 @@ main{
         h1{
             font-size: 36px; line-height: 60px;
         }
+    
+    main{
+        padding: 0 10px 35px;
+    }
 }
